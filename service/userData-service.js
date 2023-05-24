@@ -2,9 +2,9 @@ const UserDataModel = require("../models/userData-model")
 
 class UserDataService {
 
-  async setUserData(id, photo, name, speciality, experiens, contacts, hardSkills, aboutMe, education, work, technologes) {
+  async setUserData(_id, photo, name, speciality, experiens, contacts, hardSkills, aboutMe, education, work, technologes) {
     const body = {
-      id,
+      _id,
       photo,
       name,
       speciality,
@@ -16,7 +16,7 @@ class UserDataService {
       work,
       technologes,
     }
-    const user = await UserDataModel.findOneAndUpdate({ _id: id }, { ...body }, { new: true });
+    const user = await UserDataModel.findOneAndUpdate({ _id: _id }, { ...body }, { new: true });
     return user;
   }
 
